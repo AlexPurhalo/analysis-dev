@@ -1,5 +1,9 @@
 1. $ sudo npm install
 2. $ npm run dev 
-3. Pay attention to header's "Sign In" and "Sign Up" links
-4. Go throw Sign In form entering correct data
-5. Check out that header's links changed to single "Sign Out"  
+3. Sign in with valid data
+4. Ensure that you was redirected to not existed page
+5. Ensure that header's links changed to to single "Sign Out"
+6. In console use localStorage.getItem('token'), as output item's token 
+7. Sign Out user and check that token was deleted from localstorage
+8. Again type in: localStorage.getItem('token'), as output null
+ 
