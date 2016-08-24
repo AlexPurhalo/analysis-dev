@@ -1,7 +1,6 @@
 1. $ sudo npm install
 2. $ npm run dev
 3. Ensure that you signed out  
-4. In browser visit localhost:8000/feature
-5. You should be redirected to root of application
-6. Now try sign in and back to thus path again and you will see feature page
-  
+4. Sign in to existing account or create new 
+5. Do page reloading 
+6. Ensure that header hasn't changed and you still signed in
