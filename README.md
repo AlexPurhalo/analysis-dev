@@ -1,4 +1,3 @@
 1. $ sudo npm install
 2. $ npm run dev 
-3. Go to console by localhost:8080/signin address and chek output after data submitting 
-
+3. Send data throw the form and check the requests in Network, try valid email and invalid 
