@@ -1,18 +1,35 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
+import { AUTH_USER, AUTH_ERROR } from './types';
 
 const ROOT_URL = 'https://analysis-server.herokuapp.com/';
 
 export function signinUser({ email, password }) {
 	return function(dispatch) {
-		axios.post(`${ROOT_URL}/sign_in`, { email, password }); // email: email, password: password
+		axios.post(`${ROOT_URL}/sign_in`, { email, password }) // email: email, password: password
+		.then(response => {
+			// If request is good.
+			// - Update state to indicate user is authenticated
+			dispatch({ type: AUTH_USER });
+
+			// - Save the JWT token
+			localStorage.setItem('token', response.data.access_token);
+			// in browser console try as input: localStorage.getItem('token'), output: token info
+
+			// - redirect to the route '/feature'
+			browserHistory.push('/feature')
+
+		}).catch(() => {
+			// If request is bad.
+			// - Show an error to the user
+			dispatch(authError('Bad Login Info'))
+		})
 	};
-	// Submit email/password to the server
+}
 
-	// If request is good.
-	// - Update state to indicate user is authenticated
-	// - Save the JWT token
-	// - redirect to the route '/feature'
-
-	// If request is bad.
-	// - Show an error to the user
+export function authError(error) {
+	return {
+		type: AUTH_ERROR,
+		payload: error
+	}
 }
