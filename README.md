@@ -3,4 +3,4 @@
 3. Ensure that you signed out
 4. Authenticate 
 5. Visit feature page
-6. open the console and check that it has GET request with message on response 
+6. Ensure that you see friendly message :3  

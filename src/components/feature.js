@@ -6,9 +6,14 @@ class Feature extends Component {
 	componentWillMount() {
 		this.props.fetchMessage();
 	}
+	
 	render() {
-		return <div>This is a feature :)</div>
+		return <div>{this.props.message}</div>;
 	}
 }
 
-export default connect(null, actions)(Feature);
+function mapStateToProps(state) {
+	return { message: state.auth.message }
+}
+
+export default connect(mapStateToProps, actions)(Feature);
