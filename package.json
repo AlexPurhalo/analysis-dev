@@ -5,7 +5,9 @@
   "main": "index.js",
   "repository": "git remote add origin https://github.com/AlexPurhalo/analysis-dev",
   "scripts": {
-		"dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+		"dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+		"test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
+		"test:watch": "npm run test -- --watch"
   },
   "author": "Alex Purhkhalo",
   "license": "ISC",
@@ -19,7 +21,12 @@
     "babel-preset-react": "^6.1.18",
     "jsdom": "^8.1.0",
     "webpack": "^1.6.0",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+		"chai": "^3.5.0",
+		"chai-jquery": "^2.0.0",
+		"jquery": "^2.2.1",
+		"mocha": "^2.4.5",
+		"react-addons-test-utils": "^0.14.7"
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
