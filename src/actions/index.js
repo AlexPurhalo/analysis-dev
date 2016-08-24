@@ -47,6 +47,7 @@ export function signupUser({ email, password }) {
 				dispatch({ type: AUTH_USER });
 				localStorage.setItem('token', response.data.access_token);
 				browserHistory.push('/feature');
-			});
+			})
+			.catch(response => dispatch(authError(response.data.error)));
 	}
 }
