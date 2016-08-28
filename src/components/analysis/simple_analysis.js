@@ -81,6 +81,41 @@ export default class SimpleAnalysis extends Component {
 		return this.quartilesDefinition(75)
 	}
 
+	///Outliers definition --- Part IV
+	// http://www.statisticshowto.com/find-outliers/ - I've used this guide
+	Outliers() {
+		// Parsing and Soring
+		let arr = this.inputParsing(this.state.value), outliers = [];
+		this.arrSort(arr);
+		// console.log(`parsed and sorted array: ${arr}`);
+
+		// Elements Definition
+		let Q1 = this.lowerQuartile(), Q3 = this.upperQuartile();
+		let IQR = Q3 - Q1, IQRx15 = IQR * 1.5; // IQR: 36 - 14 -> 22 // IQRx15: 33
+		let maximum = Q3 + IQRx15, minimal = Q1 - IQRx15; //max: 33 + 36 -> 69 //min: 14 - 33 -> -19
+		// console.log(`max: ${maximum}, min: ${minimal}, firVal: ${arr[0]}, lastVal: ${arr[arr.length-1]}`);
+
+		// Pushing to outliers numbers
+		if (minimal > arr[0]) outliers.push(arr[0]);
+		if (maximum < arr[arr.length-1]) outliers.push(arr[arr.length-1]);
+		// console.log(`outliers: ${outliers}`);
+
+		// Array returning
+		return outliers
+	}
+
+	// Output choicing
+	outliersCondition(outliers) {
+		switch(outliers.length) {
+			case 1:
+				return `Outlier: ${outliers[0]}`;
+			case 2:
+				return `Outliers: ${outliers[0]}, ${outliers[1]}`;
+			default:
+				return 'No Outliers';
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -99,6 +134,7 @@ export default class SimpleAnalysis extends Component {
 						<li>Lower Quartile: {this.lowerQuartile()}</li>
 						<li>Median: {this.median()}</li>
 						<li>Upper Quartile: {this.upperQuartile()}</li>
+						<li>{this.outliersCondition(this.Outliers())}</li>
 					</ul>
 				) : <div>On this place will appear your analysis</div>}
 				<br/><br/>
