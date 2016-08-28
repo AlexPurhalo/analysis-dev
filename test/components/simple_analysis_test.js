@@ -7,7 +7,7 @@ describe('SimpleAnalysis', ()=> {
 	beforeEach(() => {
 		component = renderComponent(SimpleAnalysis);
 	});
-	
+
 	it('has the correct class', ()=> {
 		expect(component).to.have.class('simple-analysis')
 	});

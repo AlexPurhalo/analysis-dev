@@ -12,6 +12,10 @@ export default class Welcome extends Component {
 			</p>
 			<br/>
 			<p>Feel free to contact me if you have any question, skype: alexpuhralo.</p>
+			<p>Repositories:
+				<a href="https://github.com/AlexPurhalo/analysis-server"> Back-end </a>
+				<a href="https://github.com/AlexPurhalo/analysis-dev">Front-end</a>
+			</p>
 		</div>;
 	}
 }
