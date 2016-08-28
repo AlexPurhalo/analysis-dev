@@ -27,12 +27,14 @@ class Header extends Component {
 
 	render() {
 		return (
-			<nav className="navbar navbar-light">
-				<Link to="/" className="navbar-brand">Datasets analysis</Link>
-				<ul className="nav navbar-nav">
-					{this.renderLinks()}
-				</ul>
-			</nav>
+			<div className="header">
+				<nav className="navbar navbar-light">
+					<Link to="/" className="navbar-brand">Datasets analysis</Link>
+					<ul className="nav navbar-nav">
+						{this.renderLinks()}
+					</ul>
+				</nav>
+			</div>
 		);
 	}
 }
