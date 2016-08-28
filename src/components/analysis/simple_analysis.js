@@ -118,7 +118,7 @@ export default class SimpleAnalysis extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="simple-analysis">
 				<h3>Simple Analysis</h3><br/>
 				<h6>Enter at least 3 numbers separated by commas like: <span>3,10,14,19,22,29,32,36,49,70</span></h6>
 				<textarea
